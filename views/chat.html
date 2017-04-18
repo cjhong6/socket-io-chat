@@ -61,6 +61,7 @@
         var $userArea = $('#userArea');
         var $userForm = $('#userForm');
         var $username = $('#username');
+        var me = '';
         var $usernameError = $('#usernameError');
 
         //hangel message form send
@@ -68,16 +69,21 @@
           e.preventDefault();
           //send event to the server side so it know the form have submitted
           socket.emit('send message', $message.val());
+
           $message.val('');
         });
         //output the message out
         socket.on('new message',function(data){
-          $chatBox.append('<b>' + data.username + '</b>'+ ': ' + data.message + "<br />")
+           var from = data.username;
+           from = (from == me) ? 'Me' : data.username;
+          $chatBox.append('<b>' + from + '</b>'+ ': ' + data.message + "<br />")
         })
 
         //handle username form send
         $userForm.submit(function(e){
           e.preventDefault();
+          me = $username.val();
+          //the reason to have the 3rd paramaeter is to check username is valid.
           socket.emit('new user', $username.val(), function(data){
             if(data){
               //the data is true which mean the username is valid!
@@ -90,7 +96,7 @@
           });
           $username.val('');
         });
-        //output the username out
+        //output  all the username out
         socket.on('username', function(data){
 
         })

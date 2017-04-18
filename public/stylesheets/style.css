@@ -15,9 +15,9 @@ a {
   overflow-y: scroll;
 }
 
-#message{
+/*#message{
   width:350px;
-}
+}*/
 
 #messageArea{
   display: none;
