@@ -1,6 +1,6 @@
 ### Socket IO Example
 
-![test-run](https://cloud.githubusercontent.com/assets/838110/20400464/a0439188-aca9-11e6-9c37-85fcdfd12005.gif)
+![demo](https://cloud.githubusercontent.com/assets/15274466/25122508/0b4c530a-23da-11e7-8dcd-dc854cd7514f.gif)
 
 ### Running the Example
 install node.js
