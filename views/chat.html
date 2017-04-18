@@ -75,8 +75,9 @@
         //output the message out
         socket.on('new message',function(data){
            var from = data.username;
+           var color = (from == me) ? 'green' : '#009afd';
            from = (from == me) ? 'Me' : data.username;
-          $chatBox.append('<b>' + from + '</b>'+ ': ' + data.message + "<br />")
+          $chatBox.append('<b style= "color:' + color + '"">'+ from + '</b>'+ ': ' + data.message + "<br />")
         })
 
         //handle username form send
