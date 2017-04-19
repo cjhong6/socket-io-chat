@@ -53,6 +53,7 @@ app.use(function(err, req, res, next) {
 io.on( "connection", function( socket )
 {
     console.log('connected');
+
     socket.on('send message',function(data){
       //brocast the message(data) back to the all the clients side
       console.log('Message: ' + data);
@@ -69,7 +70,9 @@ io.on( "connection", function( socket )
           callback(true);
           socket.username = data; //add the username to the socket
           username.push(socket.username);//add username to the arry
+          //TODO: Implement this in client side
           io.sockets.emit('username', username);
+          io.sockets.emit('user join', data);
         }
     });
 });

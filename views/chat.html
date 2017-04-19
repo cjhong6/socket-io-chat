@@ -77,7 +77,7 @@
            var from = data.username;
            var color = (from == me) ? 'green' : '#009afd';
            from = (from == me) ? 'Me' : data.username;
-          $chatBox.append('<b style= "color:' + color + '"">'+ from + '</b>'+ ': ' + data.message + "<br />")
+          $chatBox.append('<b style= "color:' + color + '"">'+ from + '</b>'+ ': ' + data.message + "<br/>")
         })
 
         //handle username form send
@@ -97,9 +97,12 @@
           });
           $username.val('');
         });
-        //output  all the username out
+        //TODO: output  all the username out
         socket.on('username', function(data){
+        })
 
+        socket.on('user join', function(data){
+          $chatBox.append('<p style= "color: red' + '"">' + data + " is online.</p><br/>");
         })
 
       });
